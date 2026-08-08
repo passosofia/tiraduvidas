@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tira Dúvidas — Explicações de Português para o 3.º ciclo e secundário e aulas de Espanhol dos níveis A1 a B2.">
+  <title>Tira Dúvidas | Português sem dúvidas. Espanhol sem fronteiras.</title>
+  <style>
+    :root{
+      --azul:#082d62;
+      --azul2:#123f78;
+      --vermelho:#8e1719;
+      --amarelo:#e69a00;
+      --creme:#fbf7ef;
+      --branco:#fffdf9;
+      --texto:#20242a;
+      --muted:#6d7075;
+      --linha:#e9e1d4;
+      --shadow:0 18px 50px rgba(29,35,44,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--texto);
+      background:var(--creme);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1160px,92%);margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(251,247,239,.94);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(142,23,25,.08);
+    }
+    nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-family:Georgia,serif;font-size:1.55rem;letter-spacing:.02em;white-space:nowrap}
+    .brand .pt{color:var(--azul)} .brand .es{color:var(--vermelho)}
+    .navlinks{display:flex;gap:25px;align-items:center;font-weight:650;font-size:.95rem}
+    .navlinks a:hover{color:var(--vermelho)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      border-radius:999px;padding:13px 22px;font-weight:800;
+      transition:.2s;border:1px solid transparent;cursor:pointer;
+    }
+    .btn-primary{background:var(--vermelho);color:white;box-shadow:0 9px 22px rgba(142,23,25,.18)}
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-outline{border-color:var(--azul);color:var(--azul);background:transparent}
+    .hero{padding:64px 0 76px}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}
+    .eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:900;color:var(--vermelho)}
+    h1,h2,h3{font-family:Georgia, "Times New Roman", serif;line-height:1.08;margin:0}
+    h1{font-size:clamp(3.2rem,7vw,6.4rem);font-weight:500;letter-spacing:-.035em}
+    h1 .pt{color:var(--azul)} h1 .es{color:var(--vermelho)}
+    .tagline{font-size:clamp(1.2rem,2vw,1.65rem);font-weight:800;margin:22px 0 12px}
+    .tagline .pt{color:var(--azul)} .tagline .es{color:var(--amarelo)}
+    .lead{font-size:1.08rem;color:var(--muted);max-width:640px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .hero-logo{
+      background:var(--branco);border-radius:34px;padding:20px;
+      box-shadow:var(--shadow);border:1px solid var(--linha);
+    }
+    .hero-logo img{width:100%;display:block;border-radius:20px}
+    .choice{padding:0 0 92px}
+    .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .card{
+      background:var(--branco);border:1px solid var(--linha);
+      border-radius:28px;padding:34px;box-shadow:var(--shadow);
+    }
+    .card h2{font-size:2.15rem;margin:10px 0 13px}
+    .card p{color:var(--muted)}
+    .card.pt{border-top:5px solid var(--azul)}
+    .card.es{border-top:5px solid var(--amarelo)}
+    .icon{
+      width:58px;height:58px;border-radius:18px;display:grid;place-items:center;
+      font-size:1.7rem;background:#f5efe5;
+    }
+    .pill{display:inline-block;border-radius:999px;padding:6px 11px;font-size:.78rem;font-weight:900;letter-spacing:.05em}
+    .pt .pill{color:var(--azul);background:#eaf0f8}
+    .es .pill{color:var(--vermelho);background:#fff1cf}
+    section.content{padding:90px 0}
+    section.alt{background:var(--branco)}
+    .section-head{max-width:720px;margin-bottom:42px}
+    .section-head h2{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:15px}
+    .section-head p{color:var(--muted);font-size:1.05rem}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{border:1px solid var(--linha);border-radius:22px;padding:25px;background:var(--creme)}
+    .feature h3{font-size:1.25rem;margin-bottom:8px}
+    .feature p{margin:0;color:var(--muted);font-size:.96rem}
+    .levels{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .level{padding:25px;border-radius:22px;border:1px solid #f0dfb8;background:#fffaf0}
+    .level strong{display:block;font-family:Georgia,serif;color:var(--vermelho);font-size:2rem}
+    .level span{font-weight:800;color:var(--amarelo)}
+    .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px;align-items:start}
+    .about-box{border-left:4px solid var(--vermelho);padding-left:24px}
+    .contact{
+      background:linear-gradient(135deg,var(--azul),#061f42);
+      color:white;border-radius:34px;padding:50px;display:grid;
+      grid-template-columns:1.3fr .7fr;gap:35px;align-items:center;
+    }
+    .contact h2{font-size:clamp(2.3rem,4vw,3.8rem)}
+    .contact p{color:#dce5ef}
+    .contact .btn{background:var(--amarelo);color:#352300}
+
+    .contact-details{display:flex;flex-direction:column;gap:12px;margin:22px 0 4px}
+    .contact-link{
+      display:flex;align-items:center;gap:12px;color:white;font-weight:750;
+      padding:12px 15px;border:1px solid rgba(255,255,255,.18);
+      border-radius:15px;background:rgba(255,255,255,.06);
+      overflow-wrap:anywhere;
+    }
+    .contact-link:hover{background:rgba(255,255,255,.11)}
+    .contact-link span{font-size:1.15rem}
+    @media(max-width:850px){
+      .navlinks a:not(.btn){display:none}
+      .hero-grid,.choice-grid,.about,.contact{grid-template-columns:1fr}
+      .hero{padding-top:38px}
+      .hero-logo{order:-1}
+      .features{grid-template-columns:1fr}
+      .levels{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:520px){
+      .brand{font-size:1.2rem}
+      .navlinks .btn{padding:10px 15px;font-size:.85rem}
+      .levels{grid-template-columns:1fr}
+      .card,.contact{padding:27px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="#inicio"><span class="pt">TIRA</span> <span class="es">DÚVIDAS</span></a>
+      <div class="navlinks">
+        <a href="#portugues">Português</a>
+        <a href="#espanhol">Espanhol</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contactos" class="btn btn-primary">Contactos</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Aprender • compreender • comunicar</div>
+        <h1><span class="pt">Tira</span> <span class="es">Dúvidas</span></h1>
+        <div class="tagline"><span class="pt">Português sem dúvidas.</span> <span class="es">Espanhol sem fronteiras.</span></div>
+        <p class="lead">Um espaço dedicado às palavras: apoio personalizado a Português para alunos do 3.º ciclo e ensino secundário e aulas de Espanhol dos níveis A1 a B2.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#portugues">Preciso de ajuda a Português</a>
+          <a class="btn btn-outline" href="#espanhol">Quero aprender Espanhol</a>
+        </div>
+      </div>
+      <div class="hero-logo">
+        <img src="tira-duvidas-logo.jpg" alt="Tira Dúvidas — Português sem dúvidas. Espanhol sem fronteiras.">
+      </div>
+    </div>
+  </section>
+
+  <section class="choice">
+    <div class="container choice-grid">
+      <article class="card pt">
+        <div class="icon">📖</div>
+        <span class="pill">3.º CICLO • SECUNDÁRIO</span>
+        <h2 style="color:var(--azul)">Explicações de Português</h2>
+        <p>Acompanhamento adaptado às necessidades de cada aluno: compreensão, gramática, escrita, literatura e preparação para momentos de avaliação.</p>
+        <a href="#portugues" style="font-weight:850;color:var(--azul)">Descobrir o apoio →</a>
+      </article>
+      <article class="card es">
+        <div class="icon">💬</div>
+        <span class="pill">A1 • A2 • B1 • B2</span>
+        <h2 style="color:var(--vermelho)">Aulas de Espanhol</h2>
+        <p>Aprende espanhol ao teu ritmo, desenvolvendo vocabulário, gramática, compreensão e, sobretudo, confiança para comunicar.</p>
+        <a href="#espanhol" style="font-weight:850;color:var(--vermelho)">Conhecer os níveis →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="content alt" id="portugues">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow" style="color:var(--azul)">Português</div>
+        <h2 style="color:var(--azul)">Perceber primeiro. Ganhar confiança depois.</h2>
+        <p>Explicações de Português dirigidas a alunos do 7.º ao 12.º ano, com acompanhamento ajustado às dificuldades e aos objetivos de cada aluno.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><h3>Gramática</h3><p>Revisão e consolidação dos conteúdos gramaticais, com explicações claras e exercícios orientados.</p></div>
+        <div class="feature"><h3>Leitura e interpretação</h3><p>Estratégias para compreender textos, interpretar enunciados e construir respostas completas.</p></div>
+        <div class="feature"><h3>Escrita</h3><p>Planeamento, organização de ideias, correção linguística e desenvolvimento da expressão escrita.</p></div>
+        <div class="feature"><h3>Literatura</h3><p>Acompanhamento das obras e conteúdos literários previstos nos programas escolares.</p></div>
+        <div class="feature"><h3>Testes</h3><p>Preparação orientada para fichas de avaliação, com revisão de conteúdos e treino prático.</p></div>
+        <div class="feature"><h3>Exame Nacional</h3><p>Preparação estruturada para o Exame Nacional de Português, com treino e consolidação de competências.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content" id="espanhol">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow" style="color:var(--amarelo)">Español</div>
+        <h2 style="color:var(--vermelho)">Uma nova língua abre novas fronteiras.</h2>
+        <p>Aulas de Espanhol dos níveis A1 a B2, pensadas para desenvolver progressivamente compreensão, expressão, vocabulário, gramática e comunicação.</p>
+      </div>
+      <div class="levels">
+        <div class="level"><strong>A1</strong><span>Primeiros passos</span><p>Vocabulário essencial e comunicação em situações muito simples do quotidiano.</p></div>
+        <div class="level"><strong>A2</strong><span>Ganhar autonomia</span><p>Mais vocabulário, estruturas frequentes e capacidade para lidar com situações do dia a dia.</p></div>
+        <div class="level"><strong>B1</strong><span>Comunicar com confiança</span><p>Maior autonomia na conversação, compreensão e produção de textos.</p></div>
+        <div class="level"><strong>B2</strong><span>Ir mais longe</span><p>Comunicação mais espontânea, argumentação e desenvolvimento de maior fluência.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content alt" id="sobre">
+    <div class="container about">
+      <div>
+        <div class="eyebrow">Tira Dúvidas</div>
+        <h2 style="font-size:3.3rem">Ensinar sem complicar.</h2>
+      </div>
+      <div class="about-box">
+        <p>O <strong>Tira Dúvidas</strong> nasce com uma ideia simples: aprender uma língua deve significar compreendê-la e saber usá-la — não apenas decorar regras.</p>
+        <p>Em Português, o objetivo é ajudar cada aluno a ultrapassar dificuldades e a desenvolver autonomia. Em Espanhol, é criar bases sólidas e transformar conhecimento em comunicação.</p>
+        <p class="note">Esta secção pode depois ser personalizada com a apresentação e formação da professora.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="content" id="contactos">
+    <div class="container">
+      <div class="contact">
+        <div>
+          <div class="eyebrow" style="color:#f1b53d">Vamos tirar essa dúvida?</div>
+          <h2>Fala connosco.</h2>
+          <p>Para informações sobre modalidades, disponibilidade e valores, entra em contacto.</p>
+          <div class="schedule">
+            <div class="schedule-title">Horário</div>
+            <div class="schedule-row"><strong>Dias úteis</strong><span>18h30 – 19h30</span></div>
+            <div class="schedule-row"><strong>Fins de semana</strong><span>10h00 – 12h00<br>16h00 – 18h00</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="contact-details">
+            <a class="contact-link" href="tel:+351964297945">☎ 964 297 945</a>
+            <a class="contact-link" href="mailto:almadacovadapiedadet2@gmail.com">✉ almadacovadapiedadet2@gmail.com</a>
+          </div>
+          <a class="btn" href="mailto:almadacovadapiedadet2@gmail.com?subject=Pedido%20de%20informações%20-%20Tira%20Dúvidas">Pedir informações</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© 2026 Tira Dúvidas · Português sem dúvidas. Espanhol sem fronteiras.</div>
+</footer>
+</body>
+</html>
