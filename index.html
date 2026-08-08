@@ -112,10 +112,54 @@
       overflow-wrap:anywhere;
     }
     .contact-link:hover{background:rgba(255,255,255,.11)}
+    footer{padding:38px 0;text-align:center;color:#777;font-size:.9rem}
+    .note{font-size:.83rem;color:#8b8b8b;margin-top:18px}
+
+
+    .schedule{
+      margin-top:20px;padding:18px;border-radius:18px;
+      background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);
+    }
+    .schedule-title{font-weight:900;margin-bottom:10px;color:#fff}
+    .schedule-row{display:flex;justify-content:space-between;gap:18px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+    .schedule-row:last-child{border-bottom:0}
+    .schedule-row strong{color:#f1b53d}
+    .schedule-row span{text-align:right;color:#fff}
+
+    .social-location{
+      display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;margin-top:26px;
+    }
+    .info-card{
+      background:var(--branco);border:1px solid var(--linha);border-radius:24px;
+      padding:28px;box-shadow:var(--shadow);
+    }
+    .info-card h3{font-size:1.6rem;margin-bottom:10px}
+    .info-card p{color:var(--muted);margin-top:0}
+    .facebook-btn{
+      display:inline-flex;align-items:center;gap:10px;margin-top:10px;
+      background:#1877f2;color:white;font-weight:800;padding:12px 18px;border-radius:999px;
+    }
+    .facebook-btn:hover{transform:translateY(-1px)}
+    .map-wrap{
+      overflow:hidden;border-radius:20px;border:1px solid var(--linha);margin-top:14px;
+      min-height:320px;background:#eee;
+    }
+    .map-wrap iframe{width:100%;height:320px;border:0;display:block}
+    .address{
+      display:flex;gap:10px;align-items:flex-start;margin-top:14px;color:var(--texto);font-weight:700;
+    }
+
+    .contact-links{display:grid;gap:12px;margin-top:18px}
+    .contact-link{
+      display:flex;align-items:center;gap:12px;padding:13px 16px;
+      border:1px solid rgba(255,255,255,.18);border-radius:16px;
+      background:rgba(255,255,255,.07);color:white;font-weight:700;
+    }
+    .contact-link:hover{background:rgba(255,255,255,.12)}
     .contact-link span{font-size:1.15rem}
     @media(max-width:850px){
       .navlinks a:not(.btn){display:none}
-      .hero-grid,.choice-grid,.about,.contact{grid-template-columns:1fr}
+      .hero-grid,.choice-grid,.about,.contact,.social-location{grid-template-columns:1fr}
       .hero{padding-top:38px}
       .hero-logo{order:-1}
       .features{grid-template-columns:1fr}
@@ -138,6 +182,7 @@
         <a href="#portugues">Português</a>
         <a href="#espanhol">Espanhol</a>
         <a href="#sobre">Sobre</a>
+        <a href="#localizacao">Localização</a>
         <a href="#contactos" class="btn btn-primary">Contactos</a>
       </div>
     </nav>
@@ -225,7 +270,44 @@
       <div class="about-box">
         <p>O <strong>Tira Dúvidas</strong> nasce com uma ideia simples: aprender uma língua deve significar compreendê-la e saber usá-la — não apenas decorar regras.</p>
         <p>Em Português, o objetivo é ajudar cada aluno a ultrapassar dificuldades e a desenvolver autonomia. Em Espanhol, é criar bases sólidas e transformar conhecimento em comunicação.</p>
-        <p class="note">Esta secção pode depois ser personalizada com a apresentação e formação da professora.</p>
+        
+      </div>
+    </div>
+  </section>
+
+
+  <section class="content alt" id="localizacao">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Onde estamos</div>
+        <h2>Aprender perto de casa.</h2>
+        <p>O Tira Dúvidas está na Cova da Piedade, em Almada.</p>
+      </div>
+
+      <div class="social-location">
+        <div class="info-card">
+          <h3>Segue o Tira Dúvidas</h3>
+          <p>Acompanha novidades, horários, informações e conteúdos através da nossa página de Facebook.</p>
+          <a class="facebook-btn" href="https://www.facebook.com/profile.php?id=61593117539070" target="_blank" rel="noopener noreferrer">
+            <span style="font-size:1.2rem">f</span> Facebook
+          </a>
+        </div>
+
+        <div class="info-card">
+          <h3>Localização</h3>
+          <div class="address">
+            <span>📍</span>
+            <span>Rua Doutor António José de Almeida, 29<br>Cova da Piedade, 2805-084 Almada</span>
+          </div>
+          <div class="map-wrap">
+            <iframe
+              title="Mapa do Tira Dúvidas"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Rua%20Doutor%20Ant%C3%B3nio%20Jos%C3%A9%20de%20Almeida%2029%2C%20Cova%20da%20Piedade%2C%202805-084%2C%20Portugal&output=embed">
+            </iframe>
+          </div>
+        </div>
       </div>
     </div>
   </section>
